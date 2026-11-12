@@ -1,0 +1,99 @@
+/* Rodape e avisos do site */
+
+.delivery-layout .legal-strip {
+    margin-bottom: 0;
+}
+.delivery-layout #back-top {
+    bottom: 5.5rem;
+}
+.legal-strip {
+    border-top: 5px solid #d56e00;
+    background: #f2e7db;
+    color: #23150e;
+    padding: 1rem;
+    text-align: center;
+    font-family: Georgia, serif;
+    font-size: 0.9rem;
+}
+.legal-strip p {
+    margin: 0;
+    line-height: 1.35;
+}
+.legal-strip a {
+    color: #a83d12;
+    font-weight: 700;
+    text-decoration: none;
+}
+.legal-strip a:hover,
+.legal-strip a:focus-visible {
+    text-decoration: underline;
+}
+
+.site-footer {
+    background: #211713;
+    color: #eee;
+    padding: 3rem 0 1rem;
+}
+.footer-grid {
+    display: grid;
+    gap: 2rem;
+}
+.footer-logo {
+    filter: brightness(0) invert(1);
+    width: 210px;
+}
+.footer-links {
+    display: grid;
+    gap: 0.4rem;
+}
+.footer-links a {
+    text-decoration: none;
+}
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    color: #cfc7c3;
+    font-size: 0.9rem;
+}
+.whatsapp {
+    position: fixed;
+    right: 1rem;
+    bottom: 1rem;
+    background: var(--green-dark);
+    color: #fff;
+    border-radius: 999px;
+    padding: 0.8rem 1rem;
+    text-decoration: none;
+    box-shadow: var(--shadow);
+    z-index: 30;
+}
+.whatsapp.disabled {
+    display: none;
+}
+#back-top {
+    position: fixed;
+    right: 1rem;
+    bottom: 5rem;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--red);
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.2s;
+    z-index: 29;
+}
+#back-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Rodape para tablet */
+@media (min-width: 700px) {
+    .footer-grid {
+        grid-template-columns: 1.4fr 1fr 1fr;
+    }
+}
