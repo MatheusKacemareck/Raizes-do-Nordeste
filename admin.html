@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Painel administrativo | Raízes do Nordeste</title>
+        <meta name="description" content="Acompanhamento administrativo de pedidos do Raízes do Nordeste.">
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/admin.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    </head>
+    <body class="admin-page">
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <header class="admin-topbar">
+            <a href="index.html" class="admin-brand"><img src="assets/logo.png" alt="Raízes do Nordeste"></a>
+            <div>
+                <strong>Painel administrativo</strong>
+                <span id="admin-name">Administrador</span>
+            </div>
+            <button id="admin-logout" type="button"><i class="fa-solid fa-right-from-bracket" aria-hidden="true"></i> Sair</button>
+        </header>
+        <main id="conteudo">
+            <section class="page-hero admin-hero">
+                <div class="container">
+                    <h1>Pedidos e compras</h1>
+                    <p>visão administrativa de pedidos.</p>
+                </div>
+            </section>
+
+            <section class="section container admin-shell">
+                <div class="admin-metrics" id="admin-metrics" aria-label="Resumo dos pedidos"></div>
+
+                <div class="admin-toolbar">
+                    <label>
+                        Buscar pedido
+                        <input id="admin-search" type="search" placeholder="Número, nome ou e-mail">
+                    </label>
+                    <label>
+                        Filtrar por status
+                        <select id="admin-filter">
+                            <option value="todos">Todos</option>
+                            <option>Pedido recebido</option>
+                            <option>Em preparo</option>
+                            <option>Pronto para retirada</option>
+                            <option>Saiu para entrega</option>
+                            <option>Concluído</option>
+                        </select>
+                    </label>
+                    <button class="button light" id="admin-refresh" type="button"><i class="fa-solid fa-rotate" aria-hidden="true"></i> Atualizar</button>
+                </div>
+
+                <div class="admin-section-head">
+                    <h2>Pedidos registrados</h2>
+                    <p id="admin-result-count">Carregando...</p>
+                </div>
+                <p id="admin-status-feedback" class="form-status admin-status-feedback" role="status"></p>
+                <div class="admin-table-list" id="admin-orders" aria-live="polite"></div>
+                <p class="admin-disclaimer">Os dados exibidos pertencem somente a este navegador e dispositivo.</p>
+            </section>
+        </main>
+
+        <script src="js/admin.js"></script>
+    </body>
+</html>
+
