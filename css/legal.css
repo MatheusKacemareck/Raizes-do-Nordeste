@@ -1,0 +1,171 @@
+/* Termos de uso e privacidade */
+
+.form-card label > small {
+    color: #777;
+    font-size: 0.72rem;
+    font-weight: 600;
+}
+.privacy-document {
+    max-width: 900px;
+}
+.privacy-alert,
+.privacy-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 1rem;
+    border-radius: 12px;
+}
+.privacy-alert {
+    background: #fff8ef;
+    border-left: 4px solid #d98324;
+}
+.privacy-alert > i {
+    color: #d98324;
+    margin-top: 0.2rem;
+}
+.privacy-alert p,
+.privacy-warning p {
+    margin: 0.2rem 0 0;
+}
+.privacy-updated {
+    color: #777;
+    font-size: 0.8rem;
+}
+.privacy-index {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: #f3e2c5;
+    border-radius: 14px;
+}
+.privacy-index strong {
+    width: 100%;
+}
+.privacy-index a {
+    padding: 0.35rem 0.55rem;
+    border-radius: 999px;
+    background: #fff;
+    color: #7a3e06;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+.privacy-document > section {
+    scroll-margin-top: 90px;
+    padding: 1.2rem 0;
+    border-bottom: 1px solid #e6ddd4;
+}
+.privacy-document > section:last-child {
+    border: 0;
+}
+.privacy-document h2 {
+    font-family: 'DM Sans', sans-serif;
+    color: #4b3223;
+    font-size: 1.25rem;
+}
+.privacy-document p,
+.privacy-document li {
+    color: #5f5650;
+    line-height: 1.65;
+}
+.privacy-document ul {
+    padding-left: 1.3rem;
+}
+.privacy-document code {
+    padding: 0.15rem 0.3rem;
+    border-radius: 5px;
+    background: #eee7e1;
+}
+.privacy-warning {
+    background: #fbeaea;
+    color: #7c312b;
+}
+.privacy-warning > i {
+    margin-top: 0.3rem;
+    color: #a64038;
+}
+.privacy-warning p {
+    color: #7c312b;
+}
+.privacy-document section > .button {
+    display: inline-flex;
+    margin-top: 0.5rem;
+}
+
+/* Termos e Privacidade */
+.legal-hero {
+    padding: 3.5rem 0 2.4rem;
+}
+.legal-hero h1 {
+    margin-bottom: 0.4rem;
+}
+.legal-hero p {
+    max-width: 620px;
+    margin: 0;
+    color: #eadfd8;
+}
+.legal-page {
+    max-width: 900px;
+}
+.legal-document {
+    padding: 1.25rem;
+    border: 1px solid #e6ddd4;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(59, 41, 34, 0.07);
+}
+.legal-document > p {
+    margin: 0;
+    padding: 1rem 0;
+    border-bottom: 1px solid #eee5de;
+    color: #5f5650;
+    line-height: 1.6;
+}
+.legal-document > p:first-child {
+    padding-top: 0;
+}
+.legal-document strong {
+    color: #7a3e06;
+    font-size: 1rem;
+}
+.legal-document code {
+    padding: 0.12rem 0.3rem;
+    border-radius: 4px;
+    background: #eee7e1;
+    color: #4b3223;
+}
+.legal-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.7rem;
+    margin: 1.2rem 0;
+    padding: 0.9rem;
+    border-radius: 10px;
+    background: #fff3df;
+    color: #704317;
+}
+.legal-warning i {
+    margin-top: 0.2rem;
+    color: #c76517;
+}
+.legal-warning p {
+    margin: 0;
+    line-height: 1.5;
+}
+.legal-warning a {
+    color: #7a3e06;
+    font-weight: 700;
+}
+.legal-document > .button {
+    display: inline-flex;
+}
+
+/* Texto legal em tablet */
+@media (min-width: 700px) {
+    .legal-document {
+        padding: 32px;
+    }
+}
