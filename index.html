@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+
+        <!-- Metadados -->
+        <title>Cardápio | Raízes do Nordeste</title>
+        <meta name="description" content="Confira o cardápio do Raízes do Nordeste em Recife, Fortaleza e Salvador.">
+        <meta name="keywords" content="restaurante nordestino, cardápio, comida brasileira, Recife, Fortaleza, Salvador">
+        <meta property="og:title" content="Raízes do Nordeste">
+        <meta property="og:description" content="Sabores tradicionais do Nordeste.">
+        <meta property="og:type" content="website">
+        <meta property="og:image" content="assets/hero.jpg">
+        <link rel="canonical" href="https://raizes-do-nordeste.example/">
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/home.css">
+        <link rel="stylesheet" href="css/product-details.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+    </head>
+    <body data-page="inicio" class="delivery-layout">
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+        <!-- Cabeçalho -->
+        <header id="cabecalho">
+            <div class="site-header">
+                <div class="container nav-wrap">
+                    <a class="logo" href="index.html" aria-label="Raízes do Nordeste - início">
+                        <img src="assets/logo.png" alt="Raízes do Nordeste">
+                    </a>
+
+                    <div class="header-actions">
+                        <a class="header-units" href="unidades.html"><i class="fa-solid fa-location-dot" aria-hidden="true"></i><span>Unidades</span></a>
+                        <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav">Menu</button>
+                    </div>
+
+                    <nav class="main-nav" id="main-nav" aria-label="Menu principal">
+                        <a class="active" aria-current="page" href="index.html">Cardápio</a>
+                        <a href="carrinho.html">Carrinho</a>
+                        <a href="historico.html">Pedidos</a>
+                        <a href="unidades.html">Unidades</a>
+                        <a href="login.html">Conta</a>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
+        <!-- Principal -->
+        <main id="conteudo" class="delivery-main">
+            <section class="store-cover" aria-label="Raízes do Nordeste">
+                <img src="assets/hero.jpg" alt="Prato nordestino com acompanhamentos tradicionais">
+            </section>
+
+            <section class="store-summary container">
+                <img class="store-avatar" src="assets/favicon.png" alt="Símbolo do Raízes do Nordeste">
+                <div class="store-title">
+                    <h1>Raízes do Nordeste</h1>
+                    <p>Comida brasileira, nordestina e tradicional</p>
+                </div>
+                <a class="account-link" href="login.html">Entrar</a>
+            </section>
+
+            <section class="container store-details" aria-label="Informações da loja">
+                <label class="unit-select">
+                    Unidade
+                    <select id="unit-select" aria-label="Selecionar unidade">
+                        <option>Recife — PE</option>
+                        <option>Fortaleza — CE</option>
+                        <option>Salvador — BA</option>
+                    </select>
+                </label>
+                <div class="service-info">
+                    <strong>Funcionamento</strong>
+                    <span>Terça a domingo ⬢ 18h às 23h</span>
+                </div>
+                <div class="service-info">
+                    <strong>Pedido</strong>
+                    <span>Entrega ou retirada pelo carrinho</span>
+                </div>
+            </section>
+
+            <!-- Pesquisa e categorias -->
+            <section class="menu-toolbar" aria-label="Navegação do cardápio">
+                <div class="container">
+                    <label class="search-box">
+                        <span aria-hidden="true">⌕</span>
+                        <input id="menu-search" type="search" placeholder="Buscar no cardápio" autocomplete="off">
+                    </label>
+                    <div class="delivery-filters" data-home-filters role="group" aria-label="Categorias"></div>
+                </div>
+            </section>
+
+            <!-- Cardápio -->
+            <section class="container delivery-menu">
+                <div class="menu-heading">
+                    <div>
+                        <span class="status-dot"></span>
+                        <strong>Cardápio</strong>
+                    </div>
+                    <span>A disponibilidade dos itens pode variar de acordo com a unidade</span>
+                </div>
+                <div class="delivery-products" data-home-menu></div>
+                <div class="empty-state" data-home-empty hidden>Nenhum item encontrado.</div>
+            </section>
+        </main>
+
+        <!-- Menu de celular -->
+        <nav class="bottom-nav" aria-label="Navegação rápida">
+            <a class="active" href="index.html">
+                <i class="fa-solid fa-utensils" aria-hidden="true"></i>
+                Cardápio
+            </a>
+            <a href="carrinho.html">
+                <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                Carrinho
+                <b data-cart-count>0</b>
+            </a>
+            <a href="historico.html">
+                <i class="fa-solid fa-bag-shopping" aria-hidden="true"></i>
+                Pedidos
+            </a>
+            <a href="perfil.html">
+                <i class="fa-solid fa-user" aria-hidden="true"></i>
+                Conta
+            </a>
+        </nav>
+
+        <!-- Rodapé -->
+        <footer id="rodape"></footer>
+        <button id="back-top" aria-label="Voltar ao topo">↑</button>
+        <script src="js/mock.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+</html>
+
