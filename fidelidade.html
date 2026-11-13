@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Fidelidade | Raízes do Nordeste</title>
+        <meta name="description" content="Entenda como acumular e trocar pontos no programa de fidelidade do Raízes do Nordeste.">
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/fidelidade.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+    </head>
+    <body data-page="fidelidade">
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <header id="cabecalho"></header>
+        <main id="conteudo">
+            <section class="page-hero loyalty-hero">
+                <div class="container">
+                    <span class="eyebrow">Programa de fidelidade</span>
+                    <h1>Coma. Acumule pontos. Troque por produtos.</h1>
+                    <p>Suas compras no Raízes do Nordeste se transformam em pontos para novos sabores.</p>
+                </div>
+            </section>
+
+            <section class="section container loyalty-content">
+                <div class="loyalty-formula" aria-label="Regra principal de conversão">
+                    <div>
+                        <span>R$</span>
+                        <strong>4</strong>
+                        <small>em compras</small>
+                    </div>
+                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                    <div>
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                        <strong>1</strong>
+                        <small>ponto</small>
+                    </div>
+                </div>
+
+                <section class="points-balance" aria-labelledby="points-title">
+                    <div class="points-icon">
+                        <i class="fa-solid fa-star" aria-hidden="true"></i>
+                    </div>
+                    <div>
+                        <span id="points-customer">Seu saldo</span>
+                        <h2 id="points-title">
+                            <strong id="points-value">0</strong>
+                            pontos
+                        </h2>
+                        <p id="points-message">Entre em sua conta para consultar os pontos acumulados.</p>
+                    </div>
+                    <a id="points-login" class="button primary" href="login.html">Entrar</a>
+                </section>
+
+                <div class="loyalty-grid">
+                    <article class="loyalty-card">
+                        <span class="loyalty-step">1</span>
+                        <i class="fa-solid fa-receipt" aria-hidden="true"></i>
+                        <h2>Faça seu pedido</h2>
+                        <p>
+                            A cada
+                            <strong>R$ 4 gastos</strong>
+                            , você recebe
+                            <strong>1 ponto</strong>
+                            no programa de fidelidade.
+                        </p>
+                    </article>
+                    <article class="loyalty-card">
+                        <span class="loyalty-step">2</span>
+                        <i class="fa-solid fa-coins" aria-hidden="true"></i>
+                        <h2>Acumule pontos</h2>
+                        <p>Os pontos ficam reunidos no seu saldo e podem ser usados quando você alcançar a quantidade necessária.</p>
+                    </article>
+                    <article class="loyalty-card">
+                        <span class="loyalty-step">3</span>
+                        <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                        <h2>Troque por produtos</h2>
+                        <p>
+                            O número de pontos necessários é
+                            <strong>igual ao preço do produto em reais</strong>
+                            .
+                        </p>
+                    </article>
+                </div>
+
+                <section class="redeem-panel" aria-labelledby="redeem-title">
+                    <div class="redeem-heading">
+                        <div>
+                            <h2 id="redeem-title">Resgatar um produto</h2>
+                        </div>
+                        <i class="fa-solid fa-gift" aria-hidden="true"></i>
+                    </div>
+                    <p>Escolha uma recompensa e adicione ao carrinho. Na finalização, nenhum valor em dinheiro será cobrado pelo produto; somente os pontos serão descontados.</p>
+                    <div id="rewards-menu" class="rewards-menu" aria-live="polite"></div>
+                    <p id="reward-status" class="form-status" role="status"></p>
+                    <a class="button primary rewards-cart-link" href="carrinho.html">
+                        <i class="fa-solid fa-cart-shopping" aria-hidden="true"></i>
+                        Abrir carrinho
+                        <span data-cart-count>0</span>
+                    </a>
+                </section>
+
+                <div class="loyalty-action">
+                    <a class="button light" href="index.html">Voltar ao cardápio</a>
+                </div>
+            </section>
+        </main>
+        <footer id="rodape"></footer>
+        <button id="back-top" aria-label="Voltar ao topo">↑</button>
+        <script src="js/mock.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/fidelidade.js"></script>
+    </body>
+</html>
+
