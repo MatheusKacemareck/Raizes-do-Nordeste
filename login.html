@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Entrar | Raízes do Nordeste</title>
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/login.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+    </head>
+    <body data-page="login" class="auth-page">
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <main id="conteudo" class="auth-shell">
+            <section class="auth-card" aria-labelledby="login-title">
+                <a class="auth-brand" href="index.html" aria-label="Voltar ao cardápio">
+                    <img src="assets/logo.png" alt="Raízes do Nordeste">
+                </a>
+                <div class="auth-intro">
+                    <span>Que bom ter você por aqui</span>
+                    <h1 id="login-title">Acesse sua conta</h1>
+                    <p>Entre para acompanhar seus pedidos e seu perfil.</p>
+                </div>
+                <form id="login-form" class="auth-form">
+                    <label for="login-email">E-mail</label>
+                    <div class="auth-field">
+                        <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+                        <input id="login-email" type="email" name="email" placeholder="seu@email.com" required autocomplete="email">
+                    </div>
+                    <label for="login-password">Senha</label>
+                    <div class="auth-field">
+                        <i class="fa-solid fa-key" aria-hidden="true"></i>
+                        <input id="login-password" type="password" name="senha" placeholder="Sua senha" required autocomplete="current-password">
+                    </div>
+                    <a class="forgot-link" href="recuperar-senha.html">Esqueci minha senha</a>
+                    <label class="lgpd-consent">
+                        <input type="checkbox" name="lgpd" required>
+                        <span>
+                            Confirmo que li e aceito a
+                            <a href="lgpd.html">Política de Privacidade</a>
+                            . Meus dados serão tratados conforme a Lei Geral de Proteção de Dados (LGPD).
+                        </span>
+                    </label>
+                    <button class="auth-submit" type="submit">Entrar</button>
+                    <p class="form-status" role="status"></p>
+                </form>
+                <div class="auth-divider"><span>ou</span></div>
+                <a class="auth-secondary" href="cadastro.html">Criar uma conta</a>
+                <p class="privacy-note">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    Seus dados ficam protegidos neste dispositivo.
+                </p>
+                <button class="test-access-button" id="open-test-access" type="button">
+                    <i class="fa-solid fa-key" aria-hidden="true"></i>
+                    Acesso para teste
+                </button>
+                <a class="admin-access-link" href="admin-login.html">
+                    <i class="fa-solid fa-user-shield" aria-hidden="true"></i>
+                    Área administrativa
+                </a>
+                <a class="back-menu" href="index.html">
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    Voltar ao cardápio
+                </a>
+            </section>
+
+            <div class="test-access-modal" id="test-access-modal" role="dialog" aria-modal="true" aria-labelledby="test-access-title" hidden>
+                <div class="test-access-box">
+                    <button class="test-access-close" id="close-test-access" type="button" aria-label="Fechar acesso teste">
+                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                    </button>
+                    <h2 id="test-access-title">
+                        <i class="fa-solid fa-user-check" aria-hidden="true"></i>
+                        Contas para teste
+                    </h2>
+                    <p>Escolha um perfil para preencher os dados de entrada.</p>
+                    <div class="test-profile-list" id="test-profile-list"></div>
+                    <small>Clique em uma conta e depois confirme a entrada no formulário.</small>
+                </div>
+            </div>
+        </main>
+        <script src="js/auth.js"></script>
+    </body>
+</html>
+

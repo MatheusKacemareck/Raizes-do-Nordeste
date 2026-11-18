@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <title>Finalizar pedido | Raízes do Nordeste</title>
+        <meta name="description" content="Revise e confirme seu pedido no Raízes do Nordeste.">
+        <link rel="icon" href="assets/favicon.png" type="image/png">
+        <link rel="stylesheet" href="css/global.css">
+        <link rel="stylesheet" href="css/header.css">
+        <link rel="stylesheet" href="css/footer.css">
+        <link rel="stylesheet" href="css/carrinho.css">
+        <link rel="stylesheet" href="css/pagamento.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer">
+    </head>
+    <body data-page="pedido">
+        <!-- Resumo antes do pagamento -->
+        <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+        <header id="cabecalho"></header>
+        <main id="conteudo">
+            <section class="page-hero order-hero">
+                <div class="container">
+                    <span class="eyebrow">Última etapa</span>
+                    <h1>Revise seu pedido</h1>
+                    <p>Confira os itens antes de confirmar.</p>
+                </div>
+            </section>
+            <section class="section container order-layout">
+                <div id="checkout-content" aria-live="polite"></div>
+                <aside class="checkout-summary">
+                    <h2>Resumo</h2>
+                    <div class="summary-row">
+                        <span>Itens</span>
+                        <strong id="checkout-count">0</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Recompensas</span>
+                        <strong id="checkout-points">0 pontos</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <strong id="checkout-subtotal">R$ 0,00</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Frete</span>
+                        <strong id="checkout-freight">Grátis</strong>
+                    </div>
+                    <div class="summary-row checkout-total">
+                        <span>Total</span>
+                        <strong id="checkout-total">R$ 0,00</strong>
+                    </div>
+                    <p id="checkout-note">
+                        <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+                        Recompensas não geram cobrança em dinheiro.
+                    </p>
+                    <button id="confirm-order" class="button primary" type="button" disabled>Confirmar pedido</button>
+                    <a class="button light" href="carrinho.html">Voltar ao carrinho</a>
+                </aside>
+            </section>
+        </main>
+
+        <!-- Pagamento -->
+        <dialog id="payment-dialog" class="payment-dialog" aria-labelledby="payment-title">
+            <section id="payment-choice">
+                <span class="simulation-badge">
+                    <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                    Simulação
+                </span>
+                <h2 id="payment-title">Escolha como deseja pagar</h2>
+                <p>Selecione uma opção para simular o processamento. Nenhuma cobrança será realizada.</p>
+                <div class="payment-options">
+                    <button type="button" data-payment="PIX">
+                        <i class="fa-brands fa-pix" aria-hidden="true"></i>
+                        <span>
+                            <strong>PIX</strong>
+                            <small>Confirmação simulada</small>
+                        </span>
+                    </button>
+                    <button type="button" data-payment="Cartão de crédito">
+                        <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
+                        <span>
+                            <strong>Crédito</strong>
+                            <small>Cartão de crédito</small>
+                        </span>
+                    </button>
+                    <button type="button" data-payment="Cartão de débito">
+                        <i class="fa-regular fa-credit-card" aria-hidden="true"></i>
+                        <span>
+                            <strong>Débito</strong>
+                            <small>Cartão de débito</small>
+                        </span>
+                    </button>
+                </div>
+                <button id="cancel-payment" class="dialog-cancel" type="button">Cancelar</button>
+            </section>
+
+            <!-- `xpix -->
+            <section id="payment-pix" class="payment-method-view" hidden aria-labelledby="pix-title">
+                <button class="payment-back" type="button" data-payment-back>
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    Voltar
+                </button>
+                <span class="simulation-badge">
+                    <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                    PIX demonstrativo
+                </span>
+                <h2 id="pix-title">Pague com PIX</h2>
+                <p>Escaneie o QR abaixo ou copie o código.</p>
+                <div class="mock-qr" role="img" aria-label="Representação visual de QR Code não escaneável">
+                    <span>
+                        PIX
+                        <br>
+                        TESTE
+                    </span>
+                </div>
+                <div class="pix-code-row">
+                    <input id="pix-code" value="PIX-DEMONSTRACAO-RAIZES-DO-NORDESTE" readonly aria-label="Código PIX demonstrativo">
+                    <button id="copy-pix" type="button" aria-label="Copiar código PIX">
+                        <i class="fa-regular fa-copy" aria-hidden="true"></i>
+                    </button>
+                </div>
+                <p id="copy-status" class="copy-status" role="status"></p>
+                <p class="pix-timer">
+                    <i class="fa-regular fa-clock" aria-hidden="true"></i>
+                    Expira em
+                    <strong id="pix-timer">15:00</strong>
+                </p>
+                <button id="confirm-pix" class="button primary" type="button">Simular PIX pago</button>
+                <p class="payment-safety">
+                    <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+                    Este QR Code é apenas ilustrativo.
+                </p>
+            </section>
+
+            <!-- Cartão-->
+            <section id="payment-card" class="payment-method-view" hidden aria-labelledby="card-title">
+                <button class="payment-back" type="button" data-payment-back>
+                    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+                    Voltar
+                </button>
+                <span class="simulation-badge">
+                    <i class="fa-solid fa-flask" aria-hidden="true"></i>
+                    Cartão demonstrativo
+                </span>
+                <h2 id="card-title">Dados de teste</h2>
+                <p>Use somente os dados fictícios. Não informe um cartão real.</p>
+                <form id="card-payment-form" class="card-payment-form">
+                    <label>
+                        Número de cartão
+                        <input id="test-card-number" name="numero" inputmode="numeric" autocomplete="off" maxlength="19" placeholder="4242 4242 4242 4242" required>
+                        <small>Use: 4242 4242 4242 4242</small>
+                    </label>
+                    <div>
+                        <label>
+                            Validade
+                            <input id="test-card-expiry" name="validade" inputmode="numeric" autocomplete="off" maxlength="5" placeholder="12/30" required>
+                        </label>
+                        <label>
+                            CVV
+                            <input id="test-card-cvv" name="cvv" inputmode="numeric" autocomplete="off" maxlength="3" placeholder="123" required>
+                        </label>
+                    </div>
+                    <label class="payment-consent">
+                        <input type="checkbox" name="consentimento" required>
+                        <span>
+                            Confirmo que utilizei somente dados não reais e li a
+                            <a href="lgpd.html">Política de Privacidade</a>
+                            .
+                        </span>
+                    </label>
+                    <button class="button primary" type="submit">Confirmar pagamento</button>
+                    <p class="form-status" role="status"></p>
+                </form>
+                <p class="payment-safety">
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                    Os campos são apagados após a simulação e nunca são armazenados.
+                </p>
+            </section>
+
+            <!-- processando pagamento -->
+            <section id="payment-processing" class="payment-state" hidden aria-live="assertive">
+                <span class="payment-spinner" aria-hidden="true"></span>
+                <h2>Processando pagamento...</h2>
+                <p id="processing-method"></p>
+                <small>Aguarde alguns segundos. Esta enquanto confirmamos o pagamento.</small>
+            </section>
+
+            <!-- Conlcusão -->
+            <section id="payment-success" class="payment-state" hidden aria-live="assertive">
+                <i class="fa-solid fa-circle-check payment-success-icon" aria-hidden="true"></i>
+                <h2>Pedido concluído!</h2>
+                <p id="success-order"></p>
+                <div id="success-items" class="success-items"></div>
+                <p id="success-method"></p>
+                <p class="success-note">Nenhuma cobrança real foi feita.</p>
+                <button id="payment-ok" class="button primary" type="button">OK</button>
+            </section>
+        </dialog>
+
+        <footer id="rodape"></footer>
+        <button id="back-top" aria-label="Voltar ao topo">↑</button>
+        <script src="js/mock.js"></script>
+        <script src="js/app.js"></script>
+        <script src="js/pagamento.js"></script>
+    </body>
+</html>
+
