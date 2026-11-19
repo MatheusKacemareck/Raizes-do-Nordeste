@@ -297,6 +297,23 @@
     color: #5e7c52;
     margin-bottom: 0.5rem;
 }
+.payment-error-icon {
+    font-size: 3.4rem;
+    color: #a64038;
+    margin-bottom: 0.5rem;
+}
+.payment-expired-icon {
+    font-size: 3.4rem;
+    color: #b16a18;
+    margin-bottom: 0.5rem;
+}
+.payment-state-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
 .success-items {
     margin: 1rem 0;
     padding: 0.8rem;
@@ -318,6 +335,9 @@
 .payment-state .button {
     min-width: 110px;
     margin-top: 0.5rem;
+}
+.payment-state-actions .button {
+    margin-top: 0;
 }
 
 @keyframes payment-spin {
