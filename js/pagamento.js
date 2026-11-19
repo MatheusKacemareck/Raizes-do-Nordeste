@@ -11,6 +11,8 @@ const checkoutContent = document.querySelector('#checkout-content'),
     paymentPix = document.querySelector('#payment-pix'),
     paymentCard = document.querySelector('#payment-card'),
     paymentProcessing = document.querySelector('#payment-processing'),
+    paymentError = document.querySelector('#payment-error'),
+    paymentExpired = document.querySelector('#payment-expired'),
     paymentSuccess = document.querySelector('#payment-success'),
     cardForm = document.querySelector('#card-payment-form');
 const checkoutSession = JSON.parse(localStorage.getItem('rdn-session') || 'null'),
@@ -98,7 +100,7 @@ if (unavailableCheckoutItems.length) {
 }
 // Janelas de pagament
 function hidePaymentViews() {
-    [paymentChoice, paymentPix, paymentCard, paymentProcessing, paymentSuccess].forEach((view) => (view.hidden = true));
+    [paymentChoice, paymentPix, paymentCard, paymentProcessing, paymentError, paymentExpired, paymentSuccess].forEach((view) => (view.hidden = true));
 }
 function showPaymentChoice() {
     if (processing) return;
@@ -108,14 +110,33 @@ function showPaymentChoice() {
     cardForm.reset();
     cardForm.querySelector('.form-status').textContent = '';
 }
-function startProcessing(method, delay = 2200) {
+function startProcessing(method, delay = 2200, refused = false) {
     if (processing) return;
     processing = true;
     clearInterval(pixInterval);
     hidePaymentViews();
     paymentProcessing.hidden = false;
     document.querySelector('#processing-method').textContent = `Forma escolhida: ${method}`;
-    setTimeout(() => completeOrder(method), delay);
+    setTimeout(() => {
+        if (refused) showPaymentError(method);
+        else completeOrder(method);
+    }, delay);
+}
+function showPaymentError(method) {
+    processing = false;
+    hidePaymentViews();
+    paymentError.hidden = false;
+    document.querySelector('#payment-error-method').textContent = `${method} não autorizado.`;
+}
+function expirePix() {
+    clearInterval(pixInterval);
+    hidePaymentViews();
+    paymentExpired.hidden = false;
+}
+function cancelPayment() {
+    clearInterval(pixInterval);
+    paymentDialog.close();
+    document.querySelector('#checkout-note').innerHTML = '<i class="fa-solid fa-circle-info"></i> Pagamento cancelado. Os itens continuam no carrinho.';
 }
 function renderPixTimer() {
     document.querySelector('#pix-timer').textContent = `${String(Math.floor(pixSeconds / 60)).padStart(2, '0')}:${String(pixSeconds % 60).padStart(2, '0')}`;
@@ -133,8 +154,7 @@ function openPix() {
         pixSeconds = Math.max(0, pixSeconds - 1);
         renderPixTimer();
         if (!pixSeconds) {
-            clearInterval(pixInterval);
-            document.querySelector('#confirm-pix').disabled = true;
+            expirePix();
         }
     }, 1000);
 }
@@ -157,12 +177,17 @@ confirmOrder.addEventListener('click', () => {
     showPaymentChoice();
     paymentDialog.showModal();
 });
-document.querySelector('#cancel-payment').addEventListener('click', () => paymentDialog.close());
+document.querySelector('#cancel-payment').addEventListener('click', cancelPayment);
 document.querySelectorAll('[data-payment-back]').forEach((button) => button.addEventListener('click', showPaymentChoice));
 paymentDialog.addEventListener('cancel', (event) => {
     if (processing) event.preventDefault();
-    else clearInterval(pixInterval);
+    else {
+        event.preventDefault();
+        cancelPayment();
+    }
 });
+document.querySelector('#retry-payment').addEventListener('click', showPaymentChoice);
+document.querySelector('#new-pix').addEventListener('click', openPix);
 document
     .querySelectorAll('[data-payment]')
     .forEach((button) => button.addEventListener('click', () => (button.dataset.payment === 'PIX' ? openPix() : openCard(button.dataset.payment))));
@@ -196,11 +221,13 @@ cardForm.addEventListener('submit', (event) => {
     event.preventDefault();
     const data = Object.fromEntries(new FormData(cardForm)),
         status = cardForm.querySelector('.form-status');
-    if (data.numero !== '4242 4242 4242 4242' || data.validade !== '12/30' || data.cvv !== '123') {
+    const approvedCard = '4000 0000 0000 0000',
+        refusedCard = '4000 0000 0000 0002';
+    if (![approvedCard, refusedCard].includes(data.numero) || data.validade !== '12/30' || data.cvv !== '123') {
         status.textContent = 'Use exatamente os dados de teste indicados nos campos.';
         return;
     }
-    startProcessing(selectedCardMethod);
+    startProcessing(selectedCardMethod, 2200, data.numero === refusedCard);
 });
 //Salvamento pedido realizado
 function completeOrder(method) {
@@ -244,7 +271,7 @@ function completeOrder(method) {
         .join('');
     document.querySelector('#success-method').innerHTML = !requiresPayment
         ? `<strong>${pointsRequired} pontos resgatados.</strong>`
-        : `Total simulado: <strong>${money(total)}</strong> · ${checkoutSafe(method)}${pointsRequired ? ` · ${pointsRequired} pontos resgatados` : ''}${pointsEarned ? ` · <strong>+${pointsEarned} pontos ganhos</strong>` : ''}`;
+        : `Total: <strong>${money(total)}</strong> · ${checkoutSafe(method)}${pointsRequired ? ` · ${pointsRequired} pontos resgatados` : ''}${pointsEarned ? ` · <strong>+${pointsEarned} pontos ganhos</strong>` : ''}`;
     paymentProcessing.hidden = true;
     paymentSuccess.hidden = false;
     checkoutCount.textContent = '0';
