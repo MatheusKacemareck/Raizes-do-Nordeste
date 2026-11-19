@@ -152,8 +152,9 @@
                 <form id="card-payment-form" class="card-payment-form">
                     <label>
                         Número de cartão
-                        <input id="test-card-number" name="numero" inputmode="numeric" autocomplete="off" maxlength="19" placeholder="4242 4242 4242 4242" required>
-                        <small>Use: 4242 4242 4242 4242</small>
+                        <input id="test-card-number" name="numero" inputmode="numeric" autocomplete="off" maxlength="19" placeholder="4000 0000 0000 0000" required>
+                        <small>Use: 4000 0000 0000 0000</small>
+                        <small>teste de recusa: 4000 0000 0000 0002</small>
                     </label>
                     <div>
                         <label>
@@ -187,7 +188,30 @@
                 <span class="payment-spinner" aria-hidden="true"></span>
                 <h2>Processando pagamento...</h2>
                 <p id="processing-method"></p>
-                <small>Aguarde alguns segundos. Esta enquanto confirmamos o pagamento.</small>
+                <small>Aguarde alguns segundos enquanto confirmamos o pagamento.</small>
+            </section>
+
+            <!-- Pagamento recusado -->
+            <section id="payment-error" class="payment-state" hidden aria-live="assertive">
+                <i class="fa-solid fa-circle-xmark payment-error-icon" aria-hidden="true"></i>
+                <h2>Pagamento recusado</h2>
+                <p id="payment-error-method"></p>
+                <p>Confira os dados ou escolha outra forma de pagamento.</p>
+                <div class="payment-state-actions">
+                    <button id="retry-payment" class="button primary" type="button">Tentar novamente</button>
+                    <a class="button light" href="carrinho.html">Voltar ao carrinho</a>
+                </div>
+            </section>
+
+            <!-- PIX expirado -->
+            <section id="payment-expired" class="payment-state" hidden aria-live="assertive">
+                <i class="fa-solid fa-clock-rotate-left payment-expired-icon" aria-hidden="true"></i>
+                <h2>Tempo esgotado</h2>
+                <p>O prazo para utilizar este código PIX terminou.</p>
+                <div class="payment-state-actions">
+                    <button id="new-pix" class="button primary" type="button">Gerar novo código</button>
+                    <a class="button light" href="carrinho.html">Voltar ao carrinho</a>
+                </div>
             </section>
 
             <!-- Conlcusão -->
@@ -197,7 +221,6 @@
                 <p id="success-order"></p>
                 <div id="success-items" class="success-items"></div>
                 <p id="success-method"></p>
-                <p class="success-note">Nenhuma cobrança real foi feita.</p>
                 <button id="payment-ok" class="button primary" type="button">OK</button>
             </section>
         </dialog>
